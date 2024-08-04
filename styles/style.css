@@ -158,6 +158,9 @@ legend {
   --main-text-color: #ffffff;
   --text-color: #abb2bf;
 }
+a {
+  color: var(--main-text-color);
+}
 body {
   font-family: var(--font-family);
   background-color: var(--background-color);
@@ -177,27 +180,28 @@ body {
   width: 55px;
   border-radius: 30px;
   position: relative;
+  cursor: pointer;
 }
 .moon {
   position: absolute;
-  z-index: 2;
   left: 6px;
 }
+
 .sun {
   position: absolute;
-  z-index: 0;
   top: 1px;
   right: 6px;
 }
-.move {
+.header__dark-mode::before {
+  content: url(/icons/switch.svg);
+  position: absolute;
   width: 28px;
   height: 28px;
-  position: absolute;
+  z-index: 2;
   top: -2px;
   left: -1px;
-  z-index: 3;
-  transition: all 0.8s ease;
+  transition: all 0.7s ease;
 }
-.move.active {
+.header__dark-mode.active::before {
   transform: translateX(29px) rotate(180deg);
 }

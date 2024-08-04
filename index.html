@@ -3,8 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles/style.css" />
     <title>Dyusembeyev Dildar</title>
+
+    <script>
+      let localS = localStorage.getItem('theme');
+      if (localS === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    </script>
+
+    <link rel="stylesheet" href="styles/style.css" />
   </head>
   <body>
     <div class="wrapper">
@@ -62,32 +70,6 @@
                     />
                   </svg>
                 </span>
-
-                <div class="move">
-                  <svg
-                    class=""
-                    width="28"
-                    height="28"
-                    viewBox="0 0 28 28"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <ellipse
-                      cx="13.9322"
-                      cy="13.9322"
-                      rx="9.83279"
-                      ry="9.87032"
-                      transform="rotate(45 13.9322 13.9322)"
-                      fill="white"
-                    />
-                    <path
-                      d="M8.17354 19.6909C5.00778 16.5251 5.01966 11.3805 8.20007 8.2001"
-                      stroke="#875CFF"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                    />
-                  </svg>
-                </div>
               </div>
             </div>
           </div>
