@@ -144,6 +144,7 @@ legend {
 /* root  */
 :root {
   --background-color: #d7d3cc;
+  --second-background-color: #dfdcd6;
   --main-text-color: #000000;
   --text-color: #544d40;
 
@@ -155,18 +156,25 @@ legend {
 }
 [data-theme='dark'] {
   --background-color: #282c33;
+  --second-background-color: #202329;
   --main-text-color: #ffffff;
   --text-color: #abb2bf;
 }
-a {
-  color: var(--main-text-color);
+.before-digital-grid::before {
+  content: '#';
+  color: var(--primary-color);
 }
+
 body {
   font-family: var(--font-family);
+  font-weight: 400;
   background-color: var(--background-color);
-  color: var(--main-text-color);
+  color: var(--text-color);
   font-size: 16px;
   line-height: 1.625;
+}
+a {
+  color: inherit;
 }
 .container {
   max-width: 1044px;
@@ -174,19 +182,99 @@ body {
   padding: 0 10px;
 }
 
+.header__logo img {
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+}
+.logo-image path {
+  fill: var(--main-text-color);
+}
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  padding-top: 28px;
+  margin-bottom: 4px;
+}
+.logo {
+  margin-right: 30px;
+}
+.header__body {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.header__menu-list {
+  display: flex;
+  gap: 32px;
+}
+.menu__list-link {
+  font-weight: 500;
+  color: var(--text-color);
+}
+.menu__list-link:hover {
+  font-weight: 500;
+  color: var(--main-text-color);
+}
+.header__lang-menu {
+  position: relative;
+  display: inline-block;
+}
+.lang__dropdown-button {
+  color: var(--text-color);
+  font-size: 16px;
+  cursor: pointer;
+}
+.lang__dropdown-button:hover {
+  color: var(--main-text-color);
+}
+.lang__dropdown-button::after {
+  content: '';
+  border: solid var(--text-color);
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  margin-bottom: 5px;
+  margin-left: 6px;
+  transition: transform 0.3s ease;
+  transform: rotate(45deg);
+}
+.lang__dropdown-button:hover::after {
+  border-color: var(--main-text-color);
+}
+.lang__dropdown-button.open::after {
+  transform: rotate(225deg);
+  margin-bottom: 1px;
+}
+.dropdown-content {
+  margin-top: 4px;
+  display: none;
+  position: absolute;
+  background-color: var(--background-color);
+  min-width: 36px;
+  z-index: 10;
+  border: 1px solid var(--text-color);
+  text-align: center;
+}
+.dropdown-content a {
+  display: block;
+  color: var(--text-color);
+}
+.dropdown-content a:hover {
+  background-color: var(--second-background-color);
+}
 .header__dark-mode {
+  position: relative;
+  cursor: pointer;
   background-color: var(--primary-color);
   height: 25px;
   width: 55px;
   border-radius: 30px;
-  position: relative;
-  cursor: pointer;
 }
 .moon {
   position: absolute;
   left: 6px;
 }
-
 .sun {
   position: absolute;
   top: 1px;
@@ -198,7 +286,7 @@ body {
   width: 28px;
   height: 28px;
   z-index: 2;
-  top: -2px;
+  top: -1.5px;
   left: -1px;
   transition: all 0.7s ease;
 }
