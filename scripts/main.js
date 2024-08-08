@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     darkModeButton.classList.toggle('active');
   });
-  //next functions
+  //multilingualism
   const dropdown = document.querySelector('.header__lang-menu');
   const dropbtn = document.querySelector('.lang__dropdown-button');
   const dropdownContent = document.querySelector('.dropdown-content');
@@ -39,10 +39,43 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
   });
 
-  // Закрытие меню при клике вне его
   window.addEventListener('click', function (event) {
     if (!dropdown.contains(event.target)) {
       dropdownContent.style.display = 'none';
     }
   });
+  //to be continued ...
+
+  //navigation tabs
+  // const listItem = document.querySelectorAll('.menu__list-link');
+  // const pages = document.querySelectorAll('.page');
+
+  // listItem.forEach((elem) => {
+  //   elem.addEventListener('click', showPage);
+  // });
+
+  // function(evt){
+
+  // }
+  const tabs = document.querySelectorAll('.menu__list-link');
+  const tabContents = document.querySelectorAll('.tab-content');
+
+  tabs.forEach((link) => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      // Remove 'visible' class from all tab contents
+      tabContents.forEach((tab) => {
+        tab.classList.remove('visible');
+      });
+
+      // Add 'visible' class to the selected tab content
+      const targetContent = document.querySelector(link.getAttribute('href'));
+
+      targetContent.classList.add('visible');
+    });
+  });
+
+  // Show the first tab content by default
+  document.querySelector('#home').classList.add('visible');
 });
