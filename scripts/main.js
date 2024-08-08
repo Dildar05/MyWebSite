@@ -1,81 +1,154 @@
-document.addEventListener('DOMContentLoaded', (event) => {
-  //darkMode
-  const currentTheme = localStorage.getItem('theme');
+document.addEventListener('DOMContentLoaded', () => {
+  // Темный режим
+
+  // Находим кнопку для переключения темного режима в заголовке страницы
   const darkModeButton = document.querySelector('.header__dark-mode');
 
-  if (currentTheme === 'light') {
-    darkModeButton.classList.add('active');
-  } else {
-    darkModeButton.classList.remove('active');
+  // Если кнопка существует на странице
+  if (darkModeButton) {
+    // Получаем текущую тему из localStorage или устанавливаем по умолчанию 'light' (светлая тема)
+    const currentTheme = localStorage.getItem('theme') || 'light';
+
+    // Устанавливаем текущую тему на элемент <html>, используя атрибут 'data-theme'
+    document.documentElement.setAttribute('data-theme', currentTheme);
+
+    // Переключаем активное состояние кнопки в зависимости от текущей темы
+    darkModeButton.classList.toggle('active', currentTheme === 'light');
+
+    // Добавляем обработчик события 'click' на кнопку переключения темного режима
+    darkModeButton.addEventListener('click', () => {
+      // Получаем ссылку на корневой элемент <html>
+      const rootElement = document.documentElement;
+
+      // Определяем новую тему: если текущая тема 'light', устанавливаем 'dark', иначе 'light'
+      const newTheme = rootElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+
+      // Устанавливаем новую тему на элемент <html>
+      rootElement.setAttribute('data-theme', newTheme);
+
+      // Сохраняем новую тему в localStorage для будущих сессий
+      localStorage.setItem('theme', newTheme);
+
+      // Переключаем активное состояние кнопки
+      darkModeButton.classList.toggle('active');
+    });
   }
 
-  darkModeButton.addEventListener('click', () => {
-    const rootElement = document.documentElement;
-    let dataTheme = rootElement.getAttribute('data-theme'),
-      newTheme;
-
-    newTheme = dataTheme === 'light' ? 'dark' : 'light';
-    rootElement.setAttribute('data-Theme', newTheme);
-
-    localStorage.setItem('theme', newTheme);
-
-    darkModeButton.classList.toggle('active');
-  });
-  //multilingualism
+  // Выпадающее меню для выбора языка
+  // Находим элементы выпадающего меню для выбора языка
   const dropdown = document.querySelector('.header__lang-menu');
   const dropbtn = document.querySelector('.lang__dropdown-button');
   const dropdownContent = document.querySelector('.dropdown-content');
 
-  dropbtn.addEventListener('click', function () {
-    dropbtn.classList.toggle('open');
-    dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
-  });
+  // Если элементы выпадающего меню существуют на странице
+  if (dropdown && dropbtn && dropdownContent) {
+    // Получаем сохранённый язык из localStorage
+    const savedLang = localStorage.getItem('selectedLang');
 
-  dropdownContent.addEventListener('click', function (event) {
-    if (event.target.tagName === 'A') {
-      const selectedLang = event.target.getAttribute('data-lang');
-      dropbtn.textContent = selectedLang;
-      dropdownContent.style.display = 'none';
+    // Если язык сохранён, устанавливаем его в качестве текста на кнопке
+    if (savedLang) {
+      dropbtn.textContent = savedLang;
     }
-  });
 
-  window.addEventListener('click', function (event) {
-    if (!dropdown.contains(event.target)) {
-      dropdownContent.style.display = 'none';
-    }
-  });
-  //to be continued ...
+    // Добавляем обработчик события 'click' на кнопку выпадающего меню
+    dropbtn.addEventListener('click', () => {
+      // Переключаем класс 'open' у кнопки, чтобы отобразить или скрыть меню
+      dropbtn.classList.toggle('open');
 
-  //navigation tabs
-  // const listItem = document.querySelectorAll('.menu__list-link');
-  // const pages = document.querySelectorAll('.page');
+      // Переключаем отображение содержимого выпадающего меню (блок или скрытие)
+      dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+    });
 
-  // listItem.forEach((elem) => {
-  //   elem.addEventListener('click', showPage);
-  // });
+    // Добавляем обработчик события клика на содержимое выпадающего меню
+    dropdownContent.addEventListener('click', (event) => {
+      // Если кликнули на ссылку
+      if (event.target.tagName === 'A') {
+        // Получаем выбранный язык из атрибута 'data-lang' у элемента
+        const selectedLang = event.target.getAttribute('data-lang');
 
-  // function(evt){
+        // Меняем текст кнопки на выбранный язык
+        dropbtn.textContent = selectedLang;
 
-  // }
-  const tabs = document.querySelectorAll('.menu__list-link');
-  const tabContents = document.querySelectorAll('.tab-content');
+        // Скрываем содержимое выпадающего меню
+        dropdownContent.style.display = 'none';
 
-  tabs.forEach((link) => {
-    link.addEventListener('click', function (e) {
+        // Сохраняем выбранный язык в localStorage для будущих сессий
+        localStorage.setItem('selectedLang', selectedLang);
+
+        // Убираем класс 'open' у кнопки, чтобы она выглядела неактивной
+        dropbtn.classList.remove('open');
+      }
+    });
+
+    // Добавляем обработчик события 'click' на весь документ
+    window.addEventListener('click', (event) => {
+      // Если кликнули вне выпадающего меню
+      if (!dropdown.contains(event.target)) {
+        // Скрываем содержимое выпадающего меню
+        dropdownContent.style.display = 'none';
+
+        // Убираем класс 'open' у кнопки, чтобы она выглядела неактивной
+        dropbtn.classList.remove('open');
+      }
+    });
+  }
+
+  // Навигационные вкладки и плавный скролл
+
+  // Находим все ссылки на вкладки меню и кнопки для перехода по страницам
+  document.querySelectorAll('.menu__list-link, .page-button').forEach((link) => {
+    // Добавляем обработчик события 'click' на каждую ссылку
+    link.addEventListener('click', (e) => {
+      // Предотвращаем стандартное действие по умолчанию (например, переход по ссылке)
       e.preventDefault();
 
-      // Remove 'visible' class from all tab contents
-      tabContents.forEach((tab) => {
-        tab.classList.remove('visible');
-      });
+      // Получаем ID целевой секции или страницы, на которую ведёт ссылка
+      const targetId = link.getAttribute('href') || `#${link.dataset.page}`;
 
-      // Add 'visible' class to the selected tab content
-      const targetContent = document.querySelector(link.getAttribute('href'));
+      // Находим целевой элемент на странице по ID
+      const targetContent = document.querySelector(targetId);
 
-      targetContent.classList.add('visible');
+      // Если целевой элемент найден
+      if (targetContent) {
+        // Сохраняем выбранную страницу в localStorage для будущих сессий
+        localStorage.setItem('selectedPage', targetId);
+
+        // Плавный скролл к верху страницы
+        window.scrollTo({
+          top: 0, // Скролл к самому верху страницы
+          behavior: 'smooth', // Плавный переход
+        });
+
+        // После скролла убираем класс 'visible' у всех элементов
+        setTimeout(() => {
+          document.querySelectorAll('.tab-content').forEach((tab) => {
+            tab.classList.remove('visible');
+          });
+
+          // Добавляем класс 'visible' к целевому элементу
+          targetContent.classList.add('visible');
+        }, 400); // Задержка для синхронизации с длительностью скролла (в миллисекундах)
+      }
     });
   });
 
-  // Show the first tab content by default
-  document.querySelector('#home').classList.add('visible');
+  // Показываем сохранённую страницу по умолчанию
+
+  // Получаем ID последней выбранной страницы из localStorage или устанавливаем '#home' по умолчанию
+  const savedPageId = localStorage.getItem('selectedPage') || '#home';
+
+  // Находим элемент с ID последней выбранной страницы
+  const savedPage = document.querySelector(savedPageId);
+
+  // Если элемент найден, добавляем ему класс 'visible'
+  if (savedPage) {
+    savedPage.classList.add('visible');
+  } else {
+    // Если элемент не найден, по умолчанию показываем домашнюю страницу
+    document.querySelector('#home').classList.add('visible');
+  }
 });
+// window.addEventListener('unload', () => {
+//   // Очистка localStorage
+//   localStorage.clear();
+// });

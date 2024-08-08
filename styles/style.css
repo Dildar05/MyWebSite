@@ -203,6 +203,7 @@ a {
   width: 100%;
   z-index: 1000;
   margin-bottom: 53px;
+  background-color: var(--background-color);
 }
 .header__logo img {
   -webkit-filter: invert(100%);
@@ -368,12 +369,7 @@ a {
 }
 
 .main {
-  height: 150vh;
   padding-top: 54px;
-}
-
-#content {
-  padding: 20px;
 }
 
 .tab-content {
