@@ -337,6 +337,7 @@ a {
 }
 .main-section__inner {
   display: flex;
+  flex-direction: column;
 }
 .main-section__text {
   max-width: 482px;
