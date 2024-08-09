@@ -318,6 +318,47 @@ a {
 .header__dark-mode.active::before {
   transform: translateX(29px) rotate(180deg);
 }
+/* tabs content */
+
+.tab-content {
+  display: none;
+  transform: translateY(50px);
+}
+
+.tab-content.visible {
+  display: block;
+
+  transform: translateY(0);
+  animation: myAnim 2s ease forwards;
+}
+/* home page  */
+.home-page {
+  padding-top: 107px;
+}
+.main-section__inner {
+  display: flex;
+}
+.main-section__text {
+  max-width: 482px;
+}
+.main-section-image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.main-section-image-container img {
+  display: block;
+  width: 100%; /* Или фиксированный размер, если требуется */
+}
+.image-before {
+  position: absolute;
+  width: 29.7%;
+  top: 20%;
+  left: 12.6%;
+  z-index: -1;
+
+  pointer-events: none; /* Чтобы SVG не мешал кликам на изображение */
+}
 /* footer styles */
 .footer {
   border-top: 1px solid var(--text-color);
@@ -368,22 +409,6 @@ a {
   text-align: center;
 }
 
-.main {
-  padding-top: 54px;
-}
-
-.tab-content {
-  display: none;
-
-  transform: translateY(50px);
-}
-
-.tab-content.visible {
-  display: block;
-
-  transform: translateY(0);
-  animation: myAnim 2s ease forwards;
-}
 @keyframes myAnim {
   0% {
     opacity: 0;
