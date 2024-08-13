@@ -548,6 +548,23 @@ a {
   .header__body.active {
     transform: translateY(0);
   }
+  .lang__dropdown-button {
+    font-size: 20px;
+  }
+  .header__body > :nth-child(2).header__lang-menu {
+    font-size: 20px;
+  }
+  .lang__dropdown-button::after {
+    content: '';
+    border: solid var(--text-color);
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 5px;
+    margin-bottom: 5px;
+    margin-left: 6px;
+    transition: transform 0.3s ease;
+    transform: rotate(45deg);
+  }
 
   .header__menu-list {
     flex-direction: column;

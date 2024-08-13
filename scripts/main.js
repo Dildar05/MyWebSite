@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // бургер меню
   const burgerButton = document.querySelector('.burger-menu');
   const burgerMenu = document.querySelector('.header__body');
-  const elem = document.querySelectorAll('.burger-elem');
+
   if (burgerButton) {
     burgerButton.addEventListener('click', () => {
       burgerMenu.classList.toggle('active');
@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.menu__list-link').forEach((link) => {
       link.addEventListener('click', () => {
         burgerMenu.classList.remove('active');
+        burgerButton.classList.remove('active');
       });
     });
   }
