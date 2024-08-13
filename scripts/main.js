@@ -33,61 +33,58 @@ document.addEventListener('DOMContentLoaded', () => {
       darkModeButton.classList.toggle('active');
     });
   }
+  // бургер меню
+  const burgerButton = document.querySelector('.burger-menu');
+  const burgerMenu = document.querySelector('.header__body');
+  const elem = document.querySelectorAll('.burger-elem');
+  if (burgerButton) {
+    burgerButton.addEventListener('click', () => {
+      burgerMenu.classList.toggle('active');
+      burgerButton.classList.toggle('active');
+    });
+    document.querySelectorAll('.menu__list-link').forEach((link) => {
+      link.addEventListener('click', () => {
+        burgerMenu.classList.remove('active');
+      });
+    });
+  }
 
   // Выпадающее меню для выбора языка
-  // Находим элементы выпадающего меню для выбора языка
+
   const dropdown = document.querySelector('.header__lang-menu');
   const dropbtn = document.querySelector('.lang__dropdown-button');
   const dropdownContent = document.querySelector('.dropdown-content');
 
-  // Если элементы выпадающего меню существуют на странице
   if (dropdown && dropbtn && dropdownContent) {
-    // Получаем сохранённый язык из localStorage
     const savedLang = localStorage.getItem('selectedLang');
 
-    // Если язык сохранён, устанавливаем его в качестве текста на кнопке
     if (savedLang) {
       dropbtn.textContent = savedLang;
     }
 
-    // Добавляем обработчик события 'click' на кнопку выпадающего меню
     dropbtn.addEventListener('click', () => {
-      // Переключаем класс 'open' у кнопки, чтобы отобразить или скрыть меню
       dropbtn.classList.toggle('open');
-
-      // Переключаем отображение содержимого выпадающего меню (блок или скрытие)
       dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
     });
 
-    // Добавляем обработчик события клика на содержимое выпадающего меню
     dropdownContent.addEventListener('click', (event) => {
-      // Если кликнули на ссылку
       if (event.target.tagName === 'A') {
-        // Получаем выбранный язык из атрибута 'data-lang' у элемента
         const selectedLang = event.target.getAttribute('data-lang');
 
-        // Меняем текст кнопки на выбранный язык
         dropbtn.textContent = selectedLang;
 
-        // Скрываем содержимое выпадающего меню
         dropdownContent.style.display = 'none';
 
-        // Сохраняем выбранный язык в localStorage для будущих сессий
         localStorage.setItem('selectedLang', selectedLang);
 
-        // Убираем класс 'open' у кнопки, чтобы она выглядела неактивной
         dropbtn.classList.remove('open');
       }
     });
 
-    // Добавляем обработчик события 'click' на весь документ
     window.addEventListener('click', (event) => {
-      // Если кликнули вне выпадающего меню
       if (!dropdown.contains(event.target)) {
-        // Скрываем содержимое выпадающего меню
         dropdownContent.style.display = 'none';
 
-        // Убираем класс 'open' у кнопки, чтобы она выглядела неактивной
         dropbtn.classList.remove('open');
       }
     });
@@ -95,56 +92,55 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Навигационные вкладки и плавный скролл
 
-  // Находим все ссылки на вкладки меню и кнопки для перехода по страницам
   document.querySelectorAll('.menu__list-link, .page-button').forEach((link) => {
-    // Добавляем обработчик события 'click' на каждую ссылку
     link.addEventListener('click', (e) => {
-      // Предотвращаем стандартное действие по умолчанию (например, переход по ссылке)
       e.preventDefault();
 
-      // Получаем ID целевой секции или страницы, на которую ведёт ссылка
-      const targetId = link.getAttribute('href') || `#${link.dataset.page}`;
+      // Удаляем активный класс со всех ссылок
+      document.querySelectorAll('.menu__list-link.active, .page-button.active').forEach((activeLink) => {
+        activeLink.classList.remove('active');
+      });
 
-      // Находим целевой элемент на странице по ID
+      // Добавляем активный класс на текущую ссылку
+      link.classList.add('active');
+
+      // Получаем ID целевого контента
+      const targetId = link.getAttribute('href') || `#${link.dataset.page}`;
       const targetContent = document.querySelector(targetId);
 
-      // Если целевой элемент найден
       if (targetContent) {
-        // Сохраняем выбранную страницу в localStorage для будущих сессий
+        // Сохраняем выбранную страницу в localStorage
         localStorage.setItem('selectedPage', targetId);
 
-        // Плавный скролл к верху страницы
+        // Плавно скроллим страницу к началу
         window.scrollTo({
-          top: 0, // Скролл к самому верху страницы
-          behavior: 'smooth', // Плавный переход
+          top: 0,
+          behavior: 'smooth',
         });
 
-        // После скролла убираем класс 'visible' у всех элементов
+        // Ждем окончания скролла и показываем нужный контент
         setTimeout(() => {
+          // Скрываем все табы
           document.querySelectorAll('.tab-content').forEach((tab) => {
             tab.classList.remove('visible');
           });
 
-          // Добавляем класс 'visible' к целевому элементу
+          // Показываем выбранный таб
           targetContent.classList.add('visible');
-        }, 400); // Задержка для синхронизации с длительностью скролла (в миллисекундах)
+        }, 400); // Время соответствует длительности скролла
       }
     });
   });
 
   // Показываем сохранённую страницу по умолчанию
 
-  // Получаем ID последней выбранной страницы из localStorage или устанавливаем '#home' по умолчанию
   const savedPageId = localStorage.getItem('selectedPage') || '#home';
 
-  // Находим элемент с ID последней выбранной страницы
   const savedPage = document.querySelector(savedPageId);
 
-  // Если элемент найден, добавляем ему класс 'visible'
   if (savedPage) {
     savedPage.classList.add('visible');
   } else {
-    // Если элемент не найден, по умолчанию показываем домашнюю страницу
     document.querySelector('#home').classList.add('visible');
   }
 });
