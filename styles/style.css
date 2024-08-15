@@ -175,6 +175,7 @@ legend {
 }
 .button:hover {
   background-color: var(--second-background-color);
+  color: var(--text-color);
 }
 body {
   font-family: var(--font-family);
@@ -193,6 +194,11 @@ a {
   max-width: 1044px;
   margin: 0 auto;
   padding: 0 10px;
+}
+.title {
+  color: var(--main-text-color);
+  font-weight: 500;
+  font-size: 32px;
 }
 /* pressed the footer to the bottom */
 .wrapper {
@@ -374,6 +380,7 @@ a {
 }
 
 /* home page  */
+/* home-page developer-section */
 .home-page {
   padding-top: 107px;
 }
@@ -432,7 +439,79 @@ a {
 .image-after circle {
   fill: var(--text-color);
 }
+/* home-page project-section */
+.projects-section {
+  margin-bottom: 100px;
+}
+.projects__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 20px;
+  margin-bottom: 48px;
+}
+.project__title {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.project__title::after {
+  content: '';
+  display: inline-block;
+  margin-left: 16px;
+  height: 1px;
+  width: 60%;
+  background-color: var(--primary-color);
+}
+.page-button {
+  white-space: nowrap;
+  color: var(--main-text-color);
+}
+.page-button:hover {
+  color: var(--text-color);
+}
+.projects__content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.project__card {
+  height: fit-content;
+  max-width: 330px;
+  border: 1px solid var(--text-color);
+}
+.project__card-image {
+  border-bottom: 1px solid var(--text-color);
+}
+.project__card-steck {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 8px;
+  gap: 8px;
+}
 
+.project__card-body {
+  text-align: left;
+  border-top: 1px solid var(--text-color);
+  padding: 16px;
+}
+.project__card-title {
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--main-text-color);
+  margin-bottom: 16px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.project__card-subtitle {
+  margin-bottom: 16px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+.project__card-button {
+  display: inline-block;
+}
 /* footer styles */
 .footer {
   position: relative;
@@ -506,6 +585,15 @@ a {
   .developer-section__text {
     padding-top: 50px;
   }
+  .projects__content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .project__card {
+    max-width: none;
+  }
+  .project__card-image {
+    width: 100%;
+  }
 }
 @media (max-width: 768px) {
   .header__body {
@@ -577,6 +665,9 @@ a {
   .developer-section__inner {
     flex-direction: column;
     align-items: center;
+  }
+  .projects__content {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 @media (max-width: 480px) {
