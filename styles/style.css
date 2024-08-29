@@ -93,7 +93,12 @@ svg {
   max-width: 100%;
   height: auto;
 }
-
+svg circle {
+  fill: var(--text-color);
+}
+svg rect {
+  stroke: var(--text-color);
+}
 address {
   font-style: normal;
 }
@@ -464,6 +469,7 @@ a {
   background-color: var(--primary-color);
 }
 .page-button {
+  display: inline-block;
   white-space: nowrap;
   color: var(--main-text-color);
 }
@@ -483,11 +489,13 @@ a {
 .project__card-image {
   border-bottom: 1px solid var(--text-color);
 }
-.project__card-steck {
+.steck {
   display: flex;
   flex-wrap: wrap;
   padding: 8px;
   gap: 8px;
+  border: 1px solid var(--text-color);
+  border-top: none;
 }
 
 .project__card-body {
@@ -511,6 +519,68 @@ a {
 }
 .project__card-button {
   display: inline-block;
+}
+/* home-page skills-section */
+.skills-section {
+  margin-bottom: 130px;
+}
+.skills__title {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 12px;
+}
+.skills__title::after {
+  content: '';
+  display: inline-block;
+  margin-left: 16px;
+  height: 1px;
+  width: 20%;
+  background-color: var(--primary-color);
+}
+.skills__body {
+  display: flex;
+  align-items: flex-start;
+  padding-left: 32px;
+  justify-content: space-between;
+  gap: 20px;
+}
+.skills__card-body {
+  display: flex;
+  justify-content: right;
+  flex-wrap: wrap;
+  max-width: 584px;
+  gap: 16px;
+  width: 100%;
+  height: 100%;
+}
+.skill__title {
+  padding: 8px;
+  color: var(--main-text-color);
+  font-weight: 600;
+  border: 1px solid var(--text-color);
+}
+/* home-page about-section */
+.about-section {
+  margin-bottom: 130px;
+}
+.about__title {
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 17px;
+}
+.about__title::after {
+  content: '';
+  display: inline-block;
+  margin-left: 16px;
+  height: 1px;
+  width: 80%;
+  background-color: var(--primary-color);
+}
+.about-text {
+  margin-bottom: 40px;
 }
 /* footer styles */
 .footer {
@@ -594,6 +664,10 @@ a {
   .project__card-image {
     width: 100%;
   }
+  .skills__card-body {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 @media (max-width: 768px) {
   .header__body {
@@ -668,6 +742,14 @@ a {
   }
   .projects__content {
     grid-template-columns: repeat(1, 1fr);
+  }
+  .skills__body {
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 0;
+  }
+  .skills__card-body {
+    justify-content: center;
   }
 }
 @media (max-width: 480px) {
