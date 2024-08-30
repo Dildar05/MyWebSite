@@ -149,3 +149,14 @@ document.addEventListener('DOMContentLoaded', () => {
 //   // Очистка localStorage
 //   localStorage.clear();
 // });
+document.addEventListener('mousemove', function (e) {
+  const items = document.querySelectorAll('.parallax-item');
+  const speed = 0.04; // Коэффициент скорости движения
+
+  items.forEach((item) => {
+    const itemX = (window.innerWidth / 2 - e.pageX) * speed;
+    const itemY = (window.innerHeight / 2 - e.pageY) * speed;
+
+    item.style.transform = `translate(${itemX}px, ${itemY}px)`;
+  });
+});

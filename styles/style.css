@@ -424,6 +424,9 @@ a {
   display: block;
   width: 100%;
 }
+.developer-contact-me {
+  animation: myAnimSle 1s ease 0s infinite alternate-reverse both;
+}
 .image-before {
   position: absolute;
   width: 29.7%;
@@ -444,6 +447,7 @@ a {
 .image-after circle {
   fill: var(--text-color);
 }
+
 /* home-page project-section */
 .projects-section {
   margin-bottom: 100px;
@@ -582,6 +586,78 @@ a {
 .about-text {
   margin-bottom: 40px;
 }
+.about-button {
+  animation: myAnimSle 1s ease 0s infinite alternate-reverse both;
+}
+/* home-page contacts-section */
+.contacts-section {
+  margin-bottom: 50px;
+}
+.massage__list-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.contacts__title {
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 25px;
+}
+.contacts__title::after {
+  content: '';
+  display: inline-block;
+  margin-left: 16px;
+  height: 1px;
+  width: 10%;
+  background-color: var(--primary-color);
+}
+.contacts__body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+.contacts-text {
+  max-width: 505px;
+}
+.massage {
+  padding: 16px;
+  border: 1px solid var(--text-color);
+}
+.massage__title {
+  font-weight: 600;
+  color: var(--main-text-color);
+  margin-bottom: 10px;
+}
+.massage__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.massage__list-link path {
+  fill: var(--text-color);
+}
+.massage__list-link:hover path,
+.massage__list-link:hover {
+  fill: var(--main-text-color);
+  color: var(--main-text-color);
+}
+
+.parallax-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.parallax-item {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Courier New', Courier, monospace;
+  transition: transform 0.1s ease-out; /* Плавный эффект движения */
+}
 /* footer styles */
 .footer {
   position: relative;
@@ -631,6 +707,7 @@ a {
 .contacts__media-link:hover path {
   fill: var(--main-text-color);
 }
+
 .footer__copyright {
   text-align: center;
 }
@@ -643,6 +720,15 @@ a {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+@keyframes myAnimSle {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(15px);
   }
 }
 @media (min-height: 100vh) {
@@ -736,12 +822,21 @@ a {
   .burger-menu {
     display: flex;
   }
+  .developer-section {
+    margin-bottom: 70px;
+  }
   .developer-section__inner {
     flex-direction: column;
     align-items: center;
   }
+  .projects-section {
+    margin-bottom: 70px;
+  }
   .projects__content {
     grid-template-columns: repeat(1, 1fr);
+  }
+  .skills-section {
+    margin-bottom: 70px;
   }
   .skills__body {
     flex-direction: column-reverse;
@@ -750,6 +845,15 @@ a {
   }
   .skills__card-body {
     justify-content: center;
+  }
+  .about-section {
+    margin-bottom: 60px;
+  }
+  .contacts__body {
+    flex-direction: column;
+  }
+  .contacts-text {
+    text-align: center;
   }
 }
 @media (max-width: 480px) {
