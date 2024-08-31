@@ -132,11 +132,11 @@ if (popupBtn && popup && popupBody) {
     });
   });
 
-  popup.addEventListener('click', (e) => {
-    if (e.target === popupBody) {
-      popup.classList.remove('open');
-    }
-  });
+  // popup.addEventListener('click', (e) => {
+  //   if (e.target === popupBody) {
+  //     popup.classList.remove('open');
+  //   }
+  // });
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
