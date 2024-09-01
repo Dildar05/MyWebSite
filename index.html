@@ -589,11 +589,14 @@
                 <rect x="4" y="3" width="24" height="2" transform="rotate(45 4 3)" fill="#D9D9D9" />
               </svg></div
           ></a>
-          <form class="contacts__form" action="send_email.php" method="post">
-            <input name="name" class="contacts__input" type="text" placeholder="Имя" required />
-            <input name="email" class="contacts__input" type="email" placeholder="Email" required />
-            <textarea name="message" class="contacts__textarea" placeholder="Сообщение" required></textarea>
-            <button class="contacts__button button close-popup" type="submit">Отправить</button>
+          <form class="contacts__form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="eac80383-3d92-459a-bebc-fba84b0b175b" />
+
+            <input name="Имя" class="contacts__input" type="text" placeholder="Name" />
+            <input name="Email" class="contacts__input" type="text" placeholder="Email" />
+            <textarea name="Сообщение" class="contacts__textarea" placeholder="Message"></textarea>
+            <button class="contacts__button button" type="submit">Send</button>
+            <div id="result"></div>
           </form>
         </div>
       </div>
