@@ -690,6 +690,28 @@ a {
   flex-direction: row;
   gap: 30px;
 }
+/* about-me-page */
+.about-me-page {
+  padding-top: 114px;
+}
+.about__body-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 80px;
+}
+.about__body-text {
+  max-width: 550px;
+}
+.skills-about-page {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  /* max-width: none; */
+  margin-bottom: 60px;
+  margin-top: 40px;
+}
 /* footer styles */
 .footer {
   position: relative;
@@ -895,6 +917,9 @@ a {
   .developer-title {
     margin-bottom: 15px;
   }
+  .about__body-inner {
+    flex-direction: column;
+  }
 }
 @media (max-width: 624px) {
   .header__body {
@@ -982,6 +1007,10 @@ a {
     flex-direction: column;
     gap: 15px;
     padding-bottom: 40px;
+  }
+
+  .about__body-inner {
+    flex-direction: column;
   }
 }
 @media (max-width: 480px) {
