@@ -205,6 +205,17 @@ a {
   font-weight: 500;
   font-size: 32px;
 }
+.page-title {
+  color: var(--main-text-color);
+  font-weight: 500;
+  font-size: 32px;
+  margin-bottom: 45px;
+}
+.page-title::before {
+  content: '/';
+  color: var(--primary-color);
+}
+
 /* pressed the footer to the bottom */
 .wrapper {
   display: flex;
@@ -480,6 +491,10 @@ a {
 .page-button:hover {
   color: var(--text-color);
 }
+.back-button {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
 .projects__content {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -644,7 +659,6 @@ a {
   fill: var(--main-text-color);
   color: var(--main-text-color);
 }
-
 .parallax-container {
   position: relative;
   width: 100%;
@@ -657,6 +671,24 @@ a {
   align-items: center;
   font-family: 'Courier New', Courier, monospace;
   transition: transform 0.1s ease-out; /* Плавный эффект движения */
+}
+/* works-page */
+.works-page {
+  padding-top: 114px;
+}
+/* works-page */
+
+.contacts-page {
+  padding-top: 114px;
+}
+.all-media-title {
+  margin-bottom: 30px;
+  margin-top: 50px;
+}
+.all-media-list {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
 }
 /* footer styles */
 .footer {
@@ -945,6 +977,11 @@ a {
   }
   .contacts__input {
     width: 100%;
+  }
+  .all-media-list {
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 40px;
   }
 }
 @media (max-width: 480px) {
