@@ -209,7 +209,7 @@ a {
   color: var(--main-text-color);
   font-weight: 500;
   font-size: 32px;
-  margin-bottom: 45px;
+  margin-bottom: 14px;
 }
 .page-title::before {
   content: '/';
@@ -676,8 +676,20 @@ a {
 .works-page {
   padding-top: 114px;
 }
-/* works-page */
 
+/* works-page header*/
+.tab-content-header {
+  margin-bottom: 68px;
+}
+.tab-content-header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/*works-page works-page-projects */
+.works-page-projects {
+  margin-bottom: 80px;
+}
 .contacts-page {
   padding-top: 114px;
 }
@@ -1011,6 +1023,9 @@ a {
 
   .about__body-inner {
     flex-direction: column;
+  }
+  .tab-content-header {
+    margin-bottom: 40px;
   }
 }
 @media (max-width: 480px) {

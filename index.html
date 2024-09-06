@@ -20,7 +20,7 @@
       <header class="header">
         <div class="container">
           <div class="header__inner">
-            <a class="logo" href="/">
+            <a class="logo page-button" href="#home">
               <svg
                 class="logo-image"
                 width="53"
@@ -488,10 +488,21 @@
             </section>
           </div>
           <div class="tab-content works-page" id="works">
-            <section class="projects-section-work-page">
+            <header class="tab-content-header">
               <div class="container">
-                <div class="projects-section-work-page__inner">
-                  <h2 class="projects-section-work-page__title before-digital-grid title">projects</h2>
+                <div class="tab-content-header__inner">
+                  <h2 class="page-title">projects</h2>
+                  <a class="page-button back-button" href="#home"><~~ back</a>
+                </div>
+                <p class="page-subtitle">List of my projects</p>
+              </div>
+            </header>
+            <section class="works-page-projects">
+              <div class="container">
+                <div class="project-section__inner">
+                  <div class="projects__header">
+                    <h2 class="before-digital-grid title">complete-apps</h2>
+                  </div>
                   <div class="projects__content">
                     <div class="project__card">
                       <img class="project__card-image" src="images/project1.png" alt="" />
@@ -538,18 +549,57 @@
                         <a class="project__card-button button"> Live <~></a>
                       </div>
                     </div>
+                    <div class="project__card">
+                      <img class="project__card-image" src="images/project1.png" alt="" />
+                      <ul class="steck">
+                        <li class="steck-item">HTML</li>
+                        <li class="steck-item">SCSS</li>
+                        <li class="steck-item">Python</li>
+                        <li class="steck-item">Flask</li>
+                      </ul>
+                      <div class="project__card-body">
+                        <h3 class="project__card-title">ChertNodes</h3>
+                        <p class="project__card-subtitle">Minecraft servers hosting</p>
+                        <a class="project__card-button button" href="/"> Live <~></a>
+                      </div>
+                    </div>
+                    <div class="project__card">
+                      <img class="project__card-image" src="images/project2.png" alt="" />
+                      <ul class="steck">
+                        <li class="steck-item">React</li>
+                        <li class="steck-item">Express</li>
+                        <li class="steck-item">Discord.js</li>
+                        <li class="steck-item">Node.js</li>
+                        <li class="steck-item">HTML</li>
+                        <li class="steck-item">SCSS</li>
+                        <li class="steck-item">Python</li>
+                        <li class="steck-item">Flask</li>
+                      </ul>
+                      <div class="project__card-body">
+                        <h3 class="project__card-title">ProtectX</h3>
+                        <p class="project__card-subtitle">Discord anti-crash bot</p>
+                        <a class="project__card-button button" href="/"> Live <~></a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </section>
+            <!-- section-for-small-projects -->
           </div>
           <div class="tab-content about-me-page" id="about-me">
+            <header class="tab-content-header">
+              <div class="container">
+                <div class="tab-content-header__inner">
+                  <h2 class="page-title">about-me</h2>
+                  <a class="page-button back-button" href="#home"><~~ back</a>
+                </div>
+                <p class="page-subtitle">Who am i?</p>
+              </div>
+            </header>
             <section class="about-me">
               <div class="container">
                 <div class="about-me__inner">
-                  <a class="page-button back-button" href="#home"><~~ back</a>
-                  <h2 class="page-title">about-me</h2>
-
                   <div class="about__body">
                     <div class="about__body-inner">
                       <p class="about__body-text">
@@ -697,12 +747,18 @@
             </section>
           </div>
           <div class="tab-content contacts-page" id="contacts">
+            <header class="tab-content-header">
+              <div class="container">
+                <div class="tab-content-header__inner">
+                  <h2 class="page-title">contacts</h2>
+                  <a class="page-button back-button" href="#home"><~~ back</a>
+                </div>
+                <p class="page-subtitle">сontact me</p>
+              </div>
+            </header>
             <section class="contacts-page-section">
               <div class="container">
                 <div class="contacts-page-section__inner">
-                  <a class="page-button back-button" href="#home"><~~ back</a>
-                  <h2 class="page-title">contacts</h2>
-
                   <div class="contacts__body">
                     <p class="contacts-text">
                       I’m interested in freelance opportunities. However, if you have other request or question, don’t
@@ -781,7 +837,6 @@
           </div>
         </div>
       </main>
-      <!--  -->
       <footer class="footer">
         <div class="container">
           <div class="footer__inner">
