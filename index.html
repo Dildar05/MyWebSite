@@ -45,26 +45,46 @@
               <nav class="header__menu">
                 <ul class="header__menu-list">
                   <li class="menu__list-item">
-                    <a class="menu__list-link active before-digital-grid" href="#home">home</a>
+                    <a
+                      class="menu__list-link active before-digital-grid"
+                      href="#home"
+                      data-i18n='{"en": "home", "ru": "главная"}'
+                      >home</a
+                    >
                   </li>
                   <li class="menu__list-item">
-                    <a class="menu__list-link before-digital-grid" href="#works">works</a>
+                    <a
+                      class="menu__list-link before-digital-grid"
+                      href="#works"
+                      data-i18n='{"en": "works", "ru": "мой работы"}'
+                      >works</a
+                    >
                   </li>
                   <li class="menu__list-item">
-                    <a class="menu__list-link before-digital-grid" href="#about-me">about-me</a>
+                    <a
+                      class="menu__list-link before-digital-grid"
+                      href="#about-me"
+                      data-i18n='{"en": "about-me", "ru": "обо мне"}'
+                      >about-me</a
+                    >
                   </li>
                   <li class="menu__list-item">
-                    <a class="menu__list-link before-digital-grid" href="#contacts">contacts</a>
+                    <a
+                      class="menu__list-link before-digital-grid"
+                      href="#contacts"
+                      data-i18n='{"en": "contacts", "ru": "контакты"}'
+                      >contacts</a
+                    >
                   </li>
                 </ul>
               </nav>
-              <div class="header__lang-menu">
+              <!-- <div class="header__lang-menu">
                 <button class="lang__dropdown-button" type="button">EN</button>
                 <div class="dropdown-content">
-                  <a href="#" data-lang="EN">EN</a>
-                  <a href="#" data-lang="RU">RU</a>
+                  <a onclick="setLanguage('en')" href="#" data-lang="EN">EN</a>
+                  <a onclick="setLanguage('ru')" data-lang="RU">RU</a>
                 </div>
-              </div>
+              </div> -->
               <div class="header__dark-mode">
                 <span class="moon">
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -112,13 +132,22 @@
                 <div class="developer-section__inner">
                   <div class="developer-section__text">
                     <h1 class="developer-title">
-                      Dyusembeyev Dildar is a <span class="violet"> front-end developer </span>
+                      Dyusembeyev Dildar is a
+                      <span class="violet" data-i18n='{"en": "front-end developer", "ru": "front-end разработчик"}'>
+                        front-end developer
+                      </span>
                     </h1>
-                    <p class="developer-subtitle">
+
+                    <p
+                      class="developer-subtitle"
+                      data-i18n='{"en": " I create responsive websites where technology is combined with creativity", "ru": "Я создаю адаптивные веб-сайты, где технологии сочетаются с креативностью"}'
+                    >
                       I create responsive websites where technology is combined with creativity
                     </p>
                     <!-- modal btn -->
-                    <button class="developer-contact-me button">Contact me</button>
+                    <button class="developer-contact-me button" data-i18n='{"en": "Contact me", "ru": "Написать"}'>
+                      Contact me
+                    </button>
                   </div>
                   <div class="developer-section-image-container parallax-container">
                     <svg
@@ -209,52 +238,53 @@
                 <div class="project-section__inner">
                   <div class="projects__header">
                     <h2 class="project__title before-digital-grid title">projects</h2>
-                    <a class="page-button" href="#works">View all ~~></a>
+                    <a class="page-button" href="#works" data-i18n='{"en": "View all ~~>", "ru": "посмотреть еще ~~>"}'
+                      >View all ~~></a
+                    >
                   </div>
                   <div class="projects__content">
                     <div class="project__card">
-                      <img class="project__card-image" src="images/project1.png" alt="" />
+                      <img class="project__card-image" src="images/pr2.png" alt="" />
                       <ul class="steck">
                         <li class="steck-item">HTML</li>
                         <li class="steck-item">SCSS</li>
-                        <li class="steck-item">Python</li>
-                        <li class="steck-item">Flask</li>
+                        <li class="steck-item">JS</li>
                       </ul>
                       <div class="project__card-body">
-                        <h3 class="project__card-title">ChertNodes</h3>
-                        <p class="project__card-subtitle">Minecraft servers hosting</p>
-                        <a class="project__card-button button" href="/"> Live <~></a>
+                        <h3 class="project__card-title">Apple AirPods</h3>
+                        <p class="project__card-subtitle">Page about AirPods Max by Apple</p>
+                        <a class="project__card-button button" href="https://dildar05.github.io/-layout_AirPodsMax/">
+                          Live <~></a
+                        >
                       </div>
                     </div>
                     <div class="project__card">
-                      <img class="project__card-image" src="images/project2.png" alt="" />
+                      <img class="project__card-image" src="images/pr3.png" alt="" />
                       <ul class="steck">
-                        <li class="steck-item">React</li>
-                        <li class="steck-item">Express</li>
-                        <li class="steck-item">Discord.js</li>
-                        <li class="steck-item">Node.js</li>
                         <li class="steck-item">HTML</li>
-                        <li class="steck-item">SCSS</li>
-                        <li class="steck-item">Python</li>
-                        <li class="steck-item">Flask</li>
-                      </ul>
-                      <div class="project__card-body">
-                        <h3 class="project__card-title">ProtectX</h3>
-                        <p class="project__card-subtitle">Discord anti-crash bot</p>
-                        <a class="project__card-button button" href="/"> Live <~></a>
-                      </div>
-                    </div>
-                    <div class="project__card">
-                      <img class="project__card-image" src="images/project3.png" alt="" />
-                      <ul class="steck">
                         <li class="steck-item">CSS</li>
-                        <li class="steck-item">Express</li>
-                        <li class="steck-item">Node.js</li>
+                        <li class="steck-item">Angular</li>
+                        <li class="steck-item">JS</li>
                       </ul>
                       <div class="project__card-body">
-                        <h3 class="project__card-title">Kahoot Answers Viewer</h3>
-                        <p class="project__card-subtitle">Get answers to your kahoot quiz</p>
-                        <a class="project__card-button button"> Live <~></a>
+                        <h3 class="project__card-title">Trendy Cookies</h3>
+                        <p class="project__card-subtitle">Trendy Cookies Web site</p>
+                        <a class="project__card-button button" href="https://dildar05.github.io/cookies/"> Live <~></a>
+                      </div>
+                    </div>
+                    <div class="project__card">
+                      <img class="project__card-image" src="images/pr1.png" alt="" />
+                      <ul class="steck">
+                        <li class="steck-item">HTML</li>
+                        <li class="steck-item">CSS</li>
+                        <li class="steck-item">JS</li>
+                      </ul>
+                      <div class="project__card-body">
+                        <h3 class="project__card-title">My web site</h3>
+                        <p class="project__card-subtitle">My personal web site about me</p>
+                        <a class="project__card-button button" href="https://my-web-site-phi-ten.vercel.app/">
+                          Live <~></a
+                        >
                       </div>
                     </div>
                   </div>
@@ -505,80 +535,47 @@
                   </div>
                   <div class="projects__content">
                     <div class="project__card">
-                      <img class="project__card-image" src="images/project1.png" alt="" />
+                      <img class="project__card-image" src="images/pr2.png" alt="" />
                       <ul class="steck">
                         <li class="steck-item">HTML</li>
                         <li class="steck-item">SCSS</li>
-                        <li class="steck-item">Python</li>
-                        <li class="steck-item">Flask</li>
+                        <li class="steck-item">JS</li>
                       </ul>
                       <div class="project__card-body">
-                        <h3 class="project__card-title">ChertNodes</h3>
-                        <p class="project__card-subtitle">Minecraft servers hosting</p>
-                        <a class="project__card-button button" href="/"> Live <~></a>
+                        <h3 class="project__card-title">Apple AirPods</h3>
+                        <p class="project__card-subtitle">Page about AirPods Max by Apple</p>
+                        <a class="project__card-button button" href="https://dildar05.github.io/-layout_AirPodsMax/">
+                          Live <~></a
+                        >
                       </div>
                     </div>
                     <div class="project__card">
-                      <img class="project__card-image" src="images/project2.png" alt="" />
+                      <img class="project__card-image" src="images/pr3.png" alt="" />
                       <ul class="steck">
-                        <li class="steck-item">React</li>
-                        <li class="steck-item">Express</li>
-                        <li class="steck-item">Discord.js</li>
-                        <li class="steck-item">Node.js</li>
                         <li class="steck-item">HTML</li>
-                        <li class="steck-item">SCSS</li>
-                        <li class="steck-item">Python</li>
-                        <li class="steck-item">Flask</li>
-                      </ul>
-                      <div class="project__card-body">
-                        <h3 class="project__card-title">ProtectX</h3>
-                        <p class="project__card-subtitle">Discord anti-crash bot</p>
-                        <a class="project__card-button button" href="/"> Live <~></a>
-                      </div>
-                    </div>
-                    <div class="project__card">
-                      <img class="project__card-image" src="images/project3.png" alt="" />
-                      <ul class="steck">
                         <li class="steck-item">CSS</li>
-                        <li class="steck-item">Express</li>
-                        <li class="steck-item">Node.js</li>
+                        <li class="steck-item">Angular</li>
+                        <li class="steck-item">JS</li>
                       </ul>
                       <div class="project__card-body">
-                        <h3 class="project__card-title">Kahoot Answers Viewer</h3>
-                        <p class="project__card-subtitle">Get answers to your kahoot quiz</p>
-                        <a class="project__card-button button"> Live <~></a>
+                        <h3 class="project__card-title">Trendy Cookies</h3>
+                        <p class="project__card-subtitle">Trendy Cookies Web site</p>
+                        <a class="project__card-button button" href="https://dildar05.github.io/cookies/"> Live <~></a>
                       </div>
                     </div>
                     <div class="project__card">
-                      <img class="project__card-image" src="images/project1.png" alt="" />
+                      <img class="project__card-image" src="images/pr1.png" alt="" />
                       <ul class="steck">
                         <li class="steck-item">HTML</li>
-                        <li class="steck-item">SCSS</li>
-                        <li class="steck-item">Python</li>
-                        <li class="steck-item">Flask</li>
+                        <li class="steck-item">CSS</li>
+                        <li class="steck-item">JS</li>
                       </ul>
                       <div class="project__card-body">
-                        <h3 class="project__card-title">ChertNodes</h3>
-                        <p class="project__card-subtitle">Minecraft servers hosting</p>
-                        <a class="project__card-button button" href="/"> Live <~></a>
-                      </div>
-                    </div>
-                    <div class="project__card">
-                      <img class="project__card-image" src="images/project2.png" alt="" />
-                      <ul class="steck">
-                        <li class="steck-item">React</li>
-                        <li class="steck-item">Express</li>
-                        <li class="steck-item">Discord.js</li>
-                        <li class="steck-item">Node.js</li>
-                        <li class="steck-item">HTML</li>
-                        <li class="steck-item">SCSS</li>
-                        <li class="steck-item">Python</li>
-                        <li class="steck-item">Flask</li>
-                      </ul>
-                      <div class="project__card-body">
-                        <h3 class="project__card-title">ProtectX</h3>
-                        <p class="project__card-subtitle">Discord anti-crash bot</p>
-                        <a class="project__card-button button" href="/"> Live <~></a>
+                        <h3 class="project__card-title">My web site</h3>
+                        <p class="project__card-subtitle">My personal web site about me</p>
+                        <a class="project__card-button button" href="https://my-web-site-phi-ten.vercel.app/">
+                          Live <~></a
+                        >
                       </div>
                     </div>
                   </div>
@@ -930,5 +927,6 @@
       </div>
     </div>
     <script src="scripts/main.js"></script>
+    <script src="scripts/swap-language.js"></script>
   </body>
 </html>
